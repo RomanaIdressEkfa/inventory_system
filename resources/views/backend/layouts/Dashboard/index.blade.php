@@ -2,6 +2,6 @@
 
 @section("content_page")
     <div class="container">
-        <h2>Welcome to inventory managment</h2>
+        <h2>Welcome to our inventory management</h2>
     </div>
 @endsection
