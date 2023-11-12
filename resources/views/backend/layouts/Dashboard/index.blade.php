@@ -2,6 +2,6 @@
 
 @section("content_page")
     <div class="container">
-        <h1>Welcome to dashboard</h1>
+        <h2>Welcome to dashboard</h2>
     </div>
 @endsection
