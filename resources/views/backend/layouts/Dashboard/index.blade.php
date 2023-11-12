@@ -1,9 +1,7 @@
+@extends("backend.layouts.master")
 
-
-@extends('backend.layouts.master')
-
-@section('content_page')
-
-<h1>Welcome to our Dashboard!</h1>
-
+@section("content_page")
+    <div class="container">
+        <h2>Welcome to dashboard</h2>
+    </div>
 @endsection
