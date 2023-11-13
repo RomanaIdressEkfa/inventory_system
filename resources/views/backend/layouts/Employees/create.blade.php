@@ -55,12 +55,12 @@
 
     <div class="mb-3">
       <label for="nid" class="form-label">NID Number</label>
-      <input type="text" class="form-control" id="nid" name="nid_no" placeholder="Enter your NID number">
+      <input type="number" class="form-control" id="nid" name="nid_no" placeholder="Enter your NID number">
     </div>
 
     <div class="mb-3">
       <label for="salary" class="form-label">Salary</label>
-      <input type="text" class="form-control" id="salary" name="salary" placeholder="Enter your salary">
+      <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter your salary">
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
