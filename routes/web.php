@@ -29,6 +29,7 @@ Route::get('/', [BackendController::class, 'admin'])->name('admin');
 Route::get('/employee_details_index',[EmployeeController::class,'index'])->name('employee_details_index');
 Route::get('/employee_details_create',[EmployeeController::class,'create'])->name('employee_details_create');
 Route::post('/employee_details_store',[EmployeeController::class,'store'])->name('employee_details_store');
+Route::get('/employee_details_view/{id}', [EmployeeController::class, 'view'])->name('employee_details_view');
 Route::get('/employee_details_edit/{id}',[EmployeeController::class,'edit'])->name('employee_details_edit');
 Route::post('/employee_details_update/{id}',[EmployeeController::class,'update'])->name('employee_details_update');
 Route::get('/employee_details_delete/{id}',[EmployeeController::class,'delete'])->name('employee_details_delete');

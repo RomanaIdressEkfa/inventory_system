@@ -21,6 +21,13 @@ class EmployeeController extends Controller
     }
 
 
+    public function view($id)
+    {
+        $employee = Employee::find($id);
+        return view('backend.layouts.Employees.view', compact('employee'));
+    }
+
+
     public function store(Request $request){
         $request->validate([
             'name'=>'required',
