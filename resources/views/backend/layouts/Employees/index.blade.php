@@ -38,7 +38,7 @@
             </td>
             <td>{{$employee->salary}}</td>
             <td>
-                <a href="#" class="btn btn-info">View</a>
+                <a href="{{route('employee_details_view',$employee->id)}}" class="btn btn-info">View</a>
                 <a href="{{route('employee_details_edit',$employee->id)}}" class="btn btn-primary">Edit</a>
                 <a href="{{route('employee_details_delete',$employee->id)}}" onclick="return confirm('Are you sure to delete?')" class="btn btn-danger">Delete</a>
 
