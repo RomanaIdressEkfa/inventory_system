@@ -22,8 +22,11 @@
             </a>
             <ul id="components-nav_employees" class="nav-content collapse " data-bs-parent="#sidebar-nav_employees">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                    <a href="{{route('employee_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Employee</span>
+                    </a>
+                    <a href="{{route('employee_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Employee</span>
                     </a>
                 </li>
 
