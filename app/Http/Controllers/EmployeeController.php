@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEmployeeRequest;
+use App\Http\Requests\UpdateEmployeeRequest;
 use App\Models\Employee;
-use Illuminate\Http\Request;
 use Exception;
-use Session;
 use File;
 
 class EmployeeController extends Controller
 {
-    public function index(){
-        $employees=Employee::all();
-        return view('backend.layouts.Employees.index',compact('employees'));
+    public function index()
+    {
+        $employees = Employee::all();
+        return view('backend.layouts.Employees.index', compact('employees'));
     }
 
 
-    public function create(){
+    public function create()
+    {
         return view('backend.layouts.Employees.create');
     }
 
@@ -28,37 +30,31 @@ class EmployeeController extends Controller
     }
 
 
-    public function store(Request $request){
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            // 'phone_number'=>'required',
-            'phone_number' => 'nullable|max:20',
-            'address'=>'required',
-            // 'image'=>'required|mimes:png,jpg,jpeg',
-            'nid_no'=>'required',
-            'salary'=>'required',
+    public function store(StoreEmployeeRequest $request)
+    {
 
-        ]);
-        $imageName='';
-        if($image=$request->file('image')){
-            $imageName=time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            $image->move('images/employees',$imageName);
+        try {
+            $imageName = '';
+            if ($image = $request->file('image')) {
+                $imageName = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+                $image->move('images/employees', $imageName);
+            }
+
+            Employee::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone_number' => $request->phone_number,
+                'address' => $request->address,
+                'image' => $imageName,
+                'nid_no' => $request->nid_no,
+                'salary' => $request->salary,
+
+            ]);
+            toastr()->success('Employee has been created successfully!', 'Congrats');
+            return redirect()->route('employee_details_index');
+        } catch (Exception $e) {
+            toastr()->error('Something went wrong!', 'Alert');
         }
-
-         Employee::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'phone_number'=>$request->phone_number,
-            'address'=>$request->address,
-            'image'=>$imageName,
-            'nid_no'=>$request->nid_no,
-            'salary'=>$request->salary,
-
-        ]);
-        session()->flash('message', 'Post successfully updated.');
-        return redirect()->route('employee_details_index');
-
     }
 
 
@@ -69,53 +65,46 @@ class EmployeeController extends Controller
     }
 
 
-    public function update(Request $request, $id)
+    public function update(UpdateEmployeeRequest $request, $id)
     {
-        $employee= Employee::findOrFail($id);
-        $request->validate([
-            'name'=>'required',
-            'email'=>'required',
-            // 'phone_number'=>'required',
-            'phone_number' => 'nullable|max:20',
+        try {
+            $employee = Employee::findOrFail($id);
+            $imageName = '';
+            $deleteOldImage = 'images/employees/' . $employee->image;
 
-            'address'=>'required',
-            // 'image'=>'required|mimes:png,jpg,jpeg',
-            'nid_no'=>'required',
-            'salary'=>'required',
-        ]);
-        $imageName='';
-        $deleteOldImage= 'images/employees/'.$employee->image;
+            if ($image = $request->file('image')) {
+                if (file_exists($deleteOldImage)) {
+                    File::delete($deleteOldImage);
+                } else {
+                    $imageName = $employee->image;
+                }
+                $imageName = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
+                $image->move('images/employees', $imageName);
+            }
 
-        if($image=$request->file('image')){
-            if(file_exists($deleteOldImage)){
-                File::delete($deleteOldImage);
-            }
-            else{
-                $imageName=$employee->image;
-            }
-            $imageName=time().'-'.uniqid().'.'.$image->getClientOriginalExtension();
-            $image->move('images/employees',$imageName);
+            $employee->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'phone_number' => $request->phone_number,
+                'address' => $request->address,
+                'image' => $imageName,
+                'nid_no' => $request->nid_no,
+                'salary' => $request->salary,
+            ]);
+            toastr()->success('Employee has been updated successfully!', 'Congrats');
+            return redirect()->route('employee_details_index');
+        } catch (Exception $e) {
+            toastr()->error('Something went wrong!', 'Alert');
         }
-
-        Employee::where('id', $id)->update([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'phone_number'=>$request->phone_number,
-            'address'=>$request->address,
-            'image'=>$imageName,
-            'nid_no'=>$request->nid_no,
-            'salary'=>$request->salary,
-        ]);
-        session()->flash('message', 'Post successfully updated.');
-        return redirect()->route('employee_details_index');
-
     }
 
 
     public function delete($id)
     {
-        $employees =Employee::find($id);
-        $employees->delete();
+        $employee = Employee::find($id);
+        $deleteOldImage = 'images/employees/' . $employee->image;
+        File::delete($deleteOldImage);
+        $employee->delete();
         return redirect()->back();
     }
 }
