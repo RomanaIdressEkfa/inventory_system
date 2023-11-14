@@ -13,10 +13,11 @@
 
         <body>
 
-            <div class="container mt-5">
-                <h2>Add Employee Form</h2>
+            <div class="container mt-5  ">
+                <h2 class=" text-success mb-3"> <u> Add Employee Form</u></h2>
                 <form action="{{ route("employee_details_store") }}" method="POST" enctype="multipart/form-data">
                     @csrf
+
                     <div class="mb-3">
                         <label for="name" class="form-label">Name</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
@@ -49,11 +50,30 @@
                             <p class="text-danger">{{ $errors->first("address") }}</p>
                         @endif
                     </div>
+
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Position</label>
+                        <input type="text" class="form-control" id="position" name="position" placeholder="Enter your position">
+                        @if ($errors->has("position"))
+                            <p class="text-danger">{{ $errors->first("position") }}</p>
+                        @endif
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="department" class="form-label">Department</label>
+                        <input type="text" class="form-control" id="department" name="department" placeholder="Enter your department">
+                        @if ($errors->has("department"))
+                            <p class="text-danger">{{ $errors->first("department") }}</p>
+                        @endif
+
+                    </div>
+
                     {{-- uploaded image preview --}}
                     <div class="mb-3" id='imagePreviewDiv' style='display:none'>
                         <p>Uploaded Image:</p>
                         <img id="imagePreview" class="border border-1 rounded" src="#" alt="Image Preview" style="display: none;width:100px;">
                     </div>
+
                     <div class="mb-3">
                         <label for="image" class="form-label">Upload Image</label>
                         <input type="file" class="form-control" id="image" name="image">
@@ -62,6 +82,20 @@
                         @endif
                     </div>
 
+                    <div class="mb-3">
+                        <label for="date_of_birth" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="Enter your date of birth">
+                        @if ($errors->has("date_of_birth"))
+                            <p class="text-danger">{{ $errors->first("date_of_birth") }}</p>
+                        @endif
+                    </div>
+                    <div class="mb-3">
+                        <label for="hire_date" class="form-label">Hire Date</label>
+                        <input type="date" class="form-control" id="hire_date" name="hire_date" placeholder="Enter your hire date">
+                        @if ($errors->has("hire_date"))
+                            <p class="text-danger">{{ $errors->first("hire_date") }}</p>
+                        @endif
+                    </div>
                     <div class="mb-3">
                         <label for="nid" class="form-label">NID Number</label>
                         <input type="number" class="form-control" id="nid" name="nid_no" placeholder="Enter your NID number">
@@ -78,7 +112,8 @@
                         @endif
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
+
                 </form>
             </div>
 

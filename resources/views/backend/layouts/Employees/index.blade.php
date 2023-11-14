@@ -12,8 +12,8 @@
 <body>
 
 <div class="container mt-5">
-    <h2>All Employee List</h2>
-  <table class="table">
+    <h2 class="text-success mb-3"> <u>All Employee List</u></h2>
+  <table class="table table-bordered shadow-sm">
     <thead>
       <tr>
         <th>ID</th>
@@ -34,7 +34,7 @@
             <td>{{$employee->name}}</td>
             <td>{{$employee->phone_number}}</td>
             <td>
-                <img style="width:150px;" src="{{asset('images/employees/'.$employee->image)}}" alt="">
+                <img style="width:120px;" src="{{asset('images/employees/'.$employee->image)}}" alt="">
             </td>
             <td>{{$employee->salary}}</td>
             <td>
@@ -50,7 +50,7 @@
     </tbody>
   </table>
 </div>
-<a href="{{route('employee_details_create')}}" class="btn btn-success mt-5 mb-5">Add Employee</a>
+<a href="{{route('employee_details_create')}}" class="btn btn-success mt-2 mb-5">Add Employee</a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-e5STZUs8i4MKQE6P/wxBXzquZq1TsLFtrGBsH75qbyIbbV9EP5C7nyFOy2u7b3jF" crossorigin="anonymous"></script>
 </body>
 </html>
