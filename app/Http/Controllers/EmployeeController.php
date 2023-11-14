@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Upload;
 use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Models\Employee;
@@ -34,11 +35,8 @@ class EmployeeController extends Controller
     {
 
         try {
-            $imageName = '';
-            if ($image = $request->file('image')) {
-                $imageName = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
-                $image->move('images/employees', $imageName);
-            }
+
+            $imageName = Upload::uploadImage($request->image, 'images/employees');
 
             Employee::create([
                 'name' => $request->name,
@@ -78,8 +76,7 @@ class EmployeeController extends Controller
                 } else {
                     $imageName = $employee->image;
                 }
-                $imageName = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
-                $image->move('images/employees', $imageName);
+                $imageName = Upload::uploadImage($request->image, 'images/employees');
             }
 
             $employee->update([
