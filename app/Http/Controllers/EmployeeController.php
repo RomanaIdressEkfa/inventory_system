@@ -35,6 +35,7 @@ class EmployeeController extends Controller
     {
 
         try {
+            $imageName = '';
             // upload image
             $imageName = Upload::uploadImage($request->image, 'images/employees');
 
