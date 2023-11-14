@@ -18,7 +18,11 @@ return new class extends Migration
             $table->string('phone_number', 20)->nullable();
             $table->text('address')->nullable();
             $table->text('image')->nullable();
+            $table->text('position')->nullable();
+            $table->text('department')->nullable();
             $table->integer('nid_no')->nullable();
+            $table->integer('date_of_birth')->nullable();
+            $table->integer('hire_date')->nullable();
             $table->integer('salary')->nullable();
             $table->timestamps();
         });

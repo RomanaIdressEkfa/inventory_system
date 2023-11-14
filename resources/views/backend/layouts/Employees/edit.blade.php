@@ -14,7 +14,7 @@
         <body>
 
             <div class="container mt-5">
-                <h2>Edit Employee Form</h2>
+                <h2 class="text-success"> <u>Edit Employee Form</u></h2>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -62,6 +62,24 @@
                             <p class="text-danger">{{ $errors->first("address") }}</p>
                         @endif
                     </div>
+
+
+                    <div class="mb-3">
+                        <label for="position" class="form-label">Position</label>
+                        <input type="text" class="form-control" id="position" name="position" value="{{ $employee->position }}" placeholder="Enter your position">
+                        @if ($errors->has("position"))
+                            <p class="text-danger">{{ $errors->first("position") }}</p>
+                        @endif
+
+                    </div>
+                    <div class="mb-3">
+                        <label for="department" class="form-label">Department</label>
+                        <input type="text" class="form-control" id="department" name="department" value="{{ $employee->department }}" placeholder="Enter your department">
+                        @if ($errors->has("department"))
+                            <p class="text-danger">{{ $errors->first("department") }}</p>
+                        @endif
+
+                    </div>
                     {{-- current image --}}
                     <div class="mb-3" id='currentImageDiv'>
                         <p>Current Image:</p>
@@ -80,6 +98,21 @@
                         @endif
                     </div>
                     <div class="mb-3">
+                        <label for="date_of_birth" class="form-label">Date of Birth</label>
+                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" value="{{ $employee->date_of_birth }}" placeholder="Enter your date of birth">
+                        @if ($errors->has("date_of_birth"))
+                            <p class="text-danger">{{ $errors->first("date_of_birth") }}</p>
+                        @endif
+                    </div>
+                    <div class="mb-3">
+                        <label for="hire_date" class="form-label">Hire Date</label>
+                        <input type="date" class="form-control" id="hire_date" name="hire_date" value="{{ $employee->hire_date }}" placeholder="Enter your hire date">
+                        @if ($errors->has("hire_date"))
+                            <p class="text-danger">{{ $errors->first("hire_date") }}</p>
+                        @endif
+                    </div>
+
+                    <div class="mb-3">
                         <label for="nid" class="form-label">NID Number</label>
                         <input type="number" class="form-control" id="nid" name="nid_no" value="{{ $employee->nid_no }}" placeholder="Enter your NID number">
                         @if ($errors->has("nid_no"))
@@ -95,7 +128,7 @@
                         @endif
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </form>
             </div>
 

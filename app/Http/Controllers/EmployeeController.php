@@ -45,6 +45,10 @@ class EmployeeController extends Controller
                 'phone_number' => $request->phone_number,
                 'address' => $request->address,
                 'image' => $imageName,
+                'position' => $request->position,
+                'department' => $request->department,
+                'date_of_birth' => $request->date_of_birth,
+                'hire_date' => $request->hire_date,
                 'nid_no' => $request->nid_no,
                 'salary' => $request->salary,
 
@@ -87,6 +91,10 @@ class EmployeeController extends Controller
                 'phone_number' => $request->phone_number,
                 'address' => $request->address,
                 'image' => $imageName,
+                'position' => $request->position,
+                'department' => $request->department,
+                'date_of_birth' => $request->date_of_birth,
+                'hire_date' => $request->hire_date,
                 'nid_no' => $request->nid_no,
                 'salary' => $request->salary,
             ]);
