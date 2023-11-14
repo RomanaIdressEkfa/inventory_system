@@ -35,7 +35,7 @@ class EmployeeController extends Controller
     {
 
         try {
-
+            // upload image
             $imageName = Upload::uploadImage($request->image, 'images/employees');
 
             Employee::create([
@@ -76,6 +76,7 @@ class EmployeeController extends Controller
                 } else {
                     $imageName = $employee->image;
                 }
+                //update image
                 $imageName = Upload::uploadImage($request->image, 'images/employees');
             }
 
