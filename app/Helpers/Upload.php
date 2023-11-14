@@ -9,7 +9,6 @@ class Upload
     //image upload
     public static function uploadImage($image, $destinationPath)
     {
-        $imageName = '';
 
         if ($image && $image->isValid()) {
             $imageName = time() . '-' . uniqid() . '.' . $image->getClientOriginalExtension();
