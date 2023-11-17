@@ -11,26 +11,27 @@
 </head>
 <body>
 
-<div class="container mt-5">
-    <h2 class="text-success mb-3"> <u>All Employee List</u></h2>
-  <table class="table table-bordered shadow-sm">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Phone Number</th>
-        <th>Image</th>
-        <th>Salary</th>
-        <th>Action</th>
+<div class="container ">
+    <h4 class="text-primary mb-4 "> <u>All Employee List</u></h4>
+  <table class="table table-bordered shadow rounded">
+    <thead >
+      <tr >
+        <th class="bg-dark bg-gradient text-white">ID</th>
+        <th class="bg-dark bg-gradient text-white">Name</th>
+        <th class="bg-dark bg-gradient text-white">Phone Number</th>
+        <th class="bg-dark bg-gradient text-white">Image</th>
+        <th class="bg-dark bg-gradient text-white">Salary</th>
+        <th class="bg-dark bg-gradient text-white">Action</th>
       </tr>
     </thead>
     <tbody>
-        @php
+        {{-- @php
             $i=1
-        @endphp
+        @endphp --}}
         @foreach ($employees as $key=>$employee)
         <tr>
-            <td>{{$i++}}</td>
+            {{-- <td>{{$i++}}</td> --}}
+            <td>{{$employee->id}}</td>
             <td>{{$employee->name}}</td>
             <td>{{$employee->phone_number}}</td>
             <td>
@@ -49,8 +50,18 @@
       <!-- Add more rows as needed -->
     </tbody>
   </table>
+
+   {{-- //for pagination --}}
+
+   <div class="justify-content-end">
+    {{ $employees->links('pagination::bootstrap-4') }}
 </div>
-<a href="{{route('employee_details_create')}}" class="btn btn-success mt-2 mb-5">Add Employee</a>
+
+
+
+
+</div>
+<a href="{{route('employee_details_create')}}" class="btn btn-primary mt-2 mb-5">Add Employee</a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-e5STZUs8i4MKQE6P/wxBXzquZq1TsLFtrGBsH75qbyIbbV9EP5C7nyFOy2u7b3jF" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -21,13 +21,13 @@ class StoreEmployeeRequest extends FormRequest
      */
     public function rules(): array
     {
-        
+
         return [
             'name' => 'required|string|max:255',
             'email' => 'nullable|email|max:255|unique:employees',
             'phone_number' => 'nullable|string|max:20|unique:employees',
             'address' => 'nullable|string',
-            'image' => 'nullable|string',
+            'image' => 'nullable|file|max:200',
             'position' => 'nullable|string',
             'department' => 'nullable|string',
             'nid_no' => 'nullable|integer|unique:employees',
@@ -45,7 +45,8 @@ class StoreEmployeeRequest extends FormRequest
             'email.max' => 'The email must not exceed 255 characters.',
             'phone_number.max' => 'The phone number must not exceed 20 characters.',
             'address.string' => 'The address must be a string.',
-            'image.string' => 'The image must be a string.',
+            'image.file' => 'The image must be a file.',
+            'image.max' => 'The image must be in 200kb.',
             'position.string' => 'The position must be a string.',
             'department.string' => 'The department must be a string.',
             'nid_no.integer' => 'The NID number must be an integer.',

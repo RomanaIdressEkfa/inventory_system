@@ -13,8 +13,8 @@
 
         <body>
 
-            <div class="container mt-5">
-                <h2 class="text-success"> <u>Edit Employee Form</u></h2>
+            <div class="container border border-light shadow mt-2">
+                <h4 class="text-primary mt-2"> <u>Edit Employee Form</u></h4>
 
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -128,7 +128,7 @@
                         @endif
                     </div>
 
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-3">Submit</button>
                 </form>
             </div>
 

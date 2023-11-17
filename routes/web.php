@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -34,6 +35,9 @@ Route::get('/employee_details_edit/{id}',[EmployeeController::class,'edit'])->na
 Route::post('/employee_details_update/{id}',[EmployeeController::class,'update'])->name('employee_details_update');
 Route::get('/employee_details_delete/{id}',[EmployeeController::class,'delete'])->name('employee_details_delete');
 //employee_details end
+
+//for pdf
+Route::get('/employees_details_pdf/{id}', [PdfController::class, 'employees_details_pdf'])->name('employees_details_pdf');
 
 
 //authentication route
