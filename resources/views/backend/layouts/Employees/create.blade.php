@@ -13,8 +13,8 @@
 
         <body>
 
-            <div class="container mt-5  ">
-                <h2 class=" text-success mb-3"> <u> Add Employee Form</u></h2>
+            <div class="container border border-light shadow ">
+                <h4 class=" text-primary mb-3"> <u> Add Employee Form</u></h4>
                 <form action="{{ route("employee_details_store") }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
@@ -105,14 +105,14 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="salary" class="form-label">Salary</label>
+                        <label for="salary" class="form-label ">Salary</label>
                         <input type="number" class="form-control" id="salary" name="salary" placeholder="Enter your salary">
                         @if ($errors->has("salary"))
                             <p class="text-danger">{{ $errors->first("salary") }}</p>
                         @endif
                     </div>
 
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="submit" class="btn btn-primary mb-3 ">Submit</button>
 
                 </form>
             </div>

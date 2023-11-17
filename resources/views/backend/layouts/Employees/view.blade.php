@@ -4,10 +4,11 @@
 <div class="container p-3">
 
     <a href="{{ route('employee_details_index')}}">
-        <h2 class="text-success mb-3"> <u>All Employee List</u></h2> </a>
+        <h4 class="text-primary mb-3"> <u>All Employee List</u></h4> </a>
+        <a class="btn btn-primary btn-sm mt-2 mb-2 float-end" href="{{route('employees_details_pdf',$employee->id)}}" >Export PDF</a>
     <div class="border border-1 p-3">
-        <table class="table table-bordered shadow-sm">
-            <h3 class="text-success"> <u> <b>{{ $employee->name ?? 'No Name Available' }}:</b> </u></h3>
+        <table class="table table-bordered shadow-sm p-4">
+            <h4 class="text-primary"> <u> <b>{{ $employee->name ?? 'No Name Available' }}:</b> </u></h4>
             <tr>
                 <th>Name:</th>
                 <td>{{ $employee->name ?? 'No Name Available' }}</td>
