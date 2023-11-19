@@ -39,8 +39,11 @@
             </a>
             <ul id="components-nav_customer" class="nav-content collapse " data-bs-parent="#sidebar-nav_customer">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                    <a href="{{route('customer_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Customer</span>
+                    </a>
+                    <a href="{{route('customer_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Customer</span>
                     </a>
                 </li>
 
