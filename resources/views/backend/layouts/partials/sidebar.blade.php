@@ -55,8 +55,11 @@
             </a>
             <ul id="components-nav_suppliers" class="nav-content collapse " data-bs-parent="#sidebar-nav_suppliers">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                    <a href="{{route('supplier_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Supplier</span>
+                    </a>
+                    <a href="{{route('supplier_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Supplier</span>
                     </a>
                 </li>
 

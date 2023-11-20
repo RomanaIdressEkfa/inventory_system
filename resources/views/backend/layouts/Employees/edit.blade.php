@@ -15,7 +15,7 @@
 
             <div class="container border border-light shadow mt-2 rounded p-4">
                 <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>EDIT EMPLOYEE</h3>
-
+{{--
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -28,7 +28,7 @@
 
                 @if (Session::has("msg"))
                     <p class="alert alert-success">{{ Session::get("msg") }}</p>
-                @endif
+                @endif --}}
                 <form action="{{ route("employee_details_update", $employee->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
@@ -121,10 +121,12 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="image" class="form-label ">Image:</label>
+                                {{-- @if (isset($employee->image) && !empty($employee->image)) --}}
                                 <input type="file" name="image" id="image" class="form-control">
                                 @if ($errors->has("image"))
                                     <p class="text-danger">{{ $errors->first("image") }}</p>
                                 @endif
+                                {{-- @endif --}}
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -141,12 +143,17 @@
                             {{-- current image --}}
                             <div class="mb-3" id='currentImageDiv'>
                                 <label>Current Image:</label> <br>
+                                {{-- @if (isset($employee->image) && !empty($employee->image)) --}}
                                 <img class="border border-1 rounded" style="width:100px;" src="{{ asset("images/employees/" . $employee->image) }}" alt="{{ $employee->name }}">
+                                {{-- @endif --}}
                             </div>
                             {{-- uploaded image --}}
                             <div class="mb-3" id='imagePreviewDiv' style='display:none'>
                                 <label>Uploaded Image:</label> <br>
+                                {{-- @if (isset($employee->image) && !empty($employee->image)) --}}
                                 <img id="imagePreview" class="border border-1 rounded" src="#" alt="Image Preview" style="display: none;width:100px;">
+                                {{-- @endif --}}
+
                             </div>
                         </div>
 
