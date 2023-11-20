@@ -2,14 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Helpers\Upload;
-use App\Http\Requests\StoreEmployeeRequest;
-use App\Http\Requests\UpdateEmployeeRequest;
-use App\Models\Employee;
-use Exception;
-use File;
+use Illuminate\Http\Request;
 
-class EmployeeController extends Controller
+class CategoryController extends Controller
 {
     public function index()
     {

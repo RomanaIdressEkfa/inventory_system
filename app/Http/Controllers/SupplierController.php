@@ -10,8 +10,9 @@ use Illuminate\Http\Request;
 class SupplierController extends Controller
 {
     public function index(){
-        $suppliers=Supplier::paginate(8);
-        return view('backend.layouts.Suppliers.index',compact('suppliers'));
+        $sl = !is_null(\request()->page) ? (\request()->page -1 )* 8 : 0;
+        $suppliers=Supplier::latest()->paginate(8);
+        return view('backend.layouts.Suppliers.index',compact('suppliers','sl'));
     }
 
     public function create(){
