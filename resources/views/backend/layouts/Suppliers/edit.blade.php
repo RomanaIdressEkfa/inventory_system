@@ -62,16 +62,6 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="address" class="form-label">Address</label>
-                                <textarea class="form-control" id="address" rows="3" name="address" placeholder="Enter your address">{{ $supplier->address }}</textarea>
-                                @if ($errors->has("address"))
-                                    <p class="text-danger">{{ $errors->first("address") }}</p>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-3">
                                 <label for="contact_person" class="form-label">Contact Person</label>
                                 <input type="tel" class="form-control" value="{{ $supplier->contact_person }}" id="contact_person" name="contact_person" placeholder="Enter your phone number">
                                 @if ($errors->has("contact_person"))
@@ -94,6 +84,16 @@
                                 <input type="number" class="form-control" id="account_balance"  value="{{ $supplier->account_balance }}" name="account_balance" placeholder="Enter your Loyalty Points">
                                 @if ($errors->has("account_balance"))
                                     <p class="text-danger">{{ $errors->first("account_balance") }}</p>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="address" class="form-label">Address</label>
+                                <textarea class="form-control" id="address" rows="3" name="address" placeholder="Enter your address">{{ $supplier->address }}</textarea>
+                                @if ($errors->has("address"))
+                                    <p class="text-danger">{{ $errors->first("address") }}</p>
                                 @endif
                             </div>
                         </div>

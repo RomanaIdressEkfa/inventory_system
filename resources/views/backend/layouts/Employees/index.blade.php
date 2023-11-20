@@ -49,10 +49,10 @@
         {{-- @php
             $i=1
         @endphp --}}
-        @foreach ($employees as $key=>$employee)
+        @foreach ($employees as $employee)
         <tr>
-            {{-- <td>{{$i++}}</td> --}}
-            <td>{{$employee->id}}</td>
+            <td>{{++$sl}}</td>
+            {{-- <td>{{$employee->id}}</td> --}}
             <td>{{$employee->name}}</td>
             <td>{{$employee->phone_number}}</td>
             <td>

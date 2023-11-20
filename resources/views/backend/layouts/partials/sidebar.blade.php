@@ -85,8 +85,11 @@
             </a>
             <ul id="components-nav_category" class="nav-content collapse " data-bs-parent="#sidebar-nav_category">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                    <a href="{{route('category_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Category</span>
+                    </a>
+                    <a href="{{route('category_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Category</span>
                     </a>
                 </li>
 
@@ -111,8 +114,11 @@
             </a>
             <ul id="components-nav_expense" class="nav-content collapse " data-bs-parent="#sidebar-nav_expense">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                    <a href="{{route('expense_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Expense</span>
+                    </a>
+                    <a href="{{route('expense_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Expense</span>
                     </a>
                 </li>
 

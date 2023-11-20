@@ -2,19 +2,18 @@
 @section("content_page")
     <!DOCTYPE html>
     <html lang="en">
-
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rGObF6jz9ATKxIep9tiCxS/Z9fNfexbBH8qO2ms2hJSg9uBoFv06C6uKfr5ccFQ8"
                 crossorigin="anonymous">
-            <title>Add Customer</title>
+            <title>Add Expense</title>
         </head>
 
         <body>
 
             <div class="container border border-light shadow p-4 rounded">
-                <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>ADD CUSTOMER</h3>
+                <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>ADD EXPENSE</h3>
                 @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -28,9 +27,10 @@
             @if (Session::has("msg"))
                 <p class="alert alert-success">{{ Session::get("msg") }}</p>
             @endif
-                <form action="{{ route("customer_details_store") }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route("expense_details_store") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
+
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="name" class="form-label">Name</label>
@@ -42,39 +42,47 @@
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
-                                @if ($errors->has("email"))
-                                    <p class="text-danger">{{ $errors->first("email") }}</p>
+                                <label for="category" class="form-label">Category</label>
+                                <input type="text" class="form-control" id="category" name="category" placeholder="Enter your category">
+                                @if ($errors->has("category"))
+                                    <p class="text-danger">{{ $errors->first("category") }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="phone" class="form-label">Phone Number</label>
-                                <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="Enter your phone number">
-                                @if ($errors->has("phone_number"))
-                                    <p class="text-danger">{{ $errors->first("phone_number") }}</p>
+                                <label for="payment_method" class="form-label">Payment Method</label>
+                                <input type="text" class="form-control" id="payment_method" name="payment_method" placeholder="Enter your payment method">
+                                @if ($errors->has("payment_method"))
+                                    <p class="text-danger">{{ $errors->first("payment_method") }}</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="notes" class="form-label">Notes</label>
+                                <input type="text" class="form-control" id="notes" name="notes" placeholder="Enter your notes">
+                                @if ($errors->has("notes"))
+                                    <p class="text-danger">{{ $errors->first("notes") }}</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="date"="form-label">Expense Date</label>
+                                <input type="date" class="form-control" id="expense_date" name="expense_date" placeholder="Enter your expense date">
+                                @if ($errors->has("expense_date"))
+                                    <p class="text-danger">{{ $errors->first("expense_date") }}</p>
                                 @endif
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="loyalty_points" class="form-label">Loyalty Points</label>
-                                <input type="number" class="form-control" id="loyalty_points" name="loyalty_points" placeholder="Enter your Loyalty Points">
-                                @if ($errors->has("loyalty_points"))
-                                    <p class="text-danger">{{ $errors->first("loyalty_points") }}</p>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="address" class="form-label">Address</label>
-                                <textarea class="form-control" id="address" rows="3" name="address" placeholder="Enter your address"></textarea>
-                                @if ($errors->has("address"))
-                                    <p class="text-danger">{{ $errors->first("address") }}</p>
+                                <label for="amount" class="form-label">Amount</label>
+                                <input type="number" class="form-control" id="amount" name="amount" placeholder="Enter your Amount">
+                                @if ($errors->has("amount"))
+                                    <p class="text-danger">{{ $errors->first("amount") }}</p>
                                 @endif
                             </div>
                         </div>

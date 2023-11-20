@@ -52,12 +52,12 @@
         @endphp --}}
         @foreach ($customers as $key=>$customer)
         <tr>
-            {{-- <td>{{$i++}}</td> --}}
-            <td>{{$customer->id}}</td>
+            <td>{{++$sl}}</td>
+            {{-- <td>{{$customer->id}}</td> --}}
             <td>{{$customer->name}}</td>
             <td>{{$customer->phone_number}}</td>
             <td>{{$customer->email}}</td>
-            <td>{{$customer->address}}</td>
+            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{$customer->address}}</td>
             <td>{{$customer->loyalty_points}}</td>
             <td>
                 <a href="{{route('customer_details_view',$customer->id)}}" class="btn btn-info btn-sm text-white">View</a>
