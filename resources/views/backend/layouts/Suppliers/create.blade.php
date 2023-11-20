@@ -8,27 +8,14 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rGObF6jz9ATKxIep9tiCxS/Z9fNfexbBH8qO2ms2hJSg9uBoFv06C6uKfr5ccFQ8"
                 crossorigin="anonymous">
-            <title>Add Customer</title>
+            <title>Add Supplier</title>
         </head>
 
         <body>
 
             <div class="container border border-light shadow p-4 rounded">
-                <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>ADD CUSTOMER</h3>
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            @if (Session::has("msg"))
-                <p class="alert alert-success">{{ Session::get("msg") }}</p>
-            @endif
-                <form action="{{ route("customer_details_store") }}" method="POST" enctype="multipart/form-data">
+                <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>ADD SUPPLIER</h3>
+                <form action="{{ route("supplier_details_store") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
@@ -68,13 +55,30 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="loyalty_points" class="form-label">Loyalty Points</label>
-                                <input type="number" class="form-control" id="loyalty_points" name="loyalty_points" placeholder="Enter your Loyalty Points">
-                                @if ($errors->has("loyalty_points"))
-                                    <p class="text-danger">{{ $errors->first("loyalty_points") }}</p>
+                                <label for="contact_person" class="form-label">Contact Person</label>
+                                <input type="tel" class="form-control" id="phone_person" name="contact_person" placeholder="Enter your phone number">
+                                @if ($errors->has("contact_person"))
+                                    <p class="text-danger">{{ $errors->first("contact_person") }}</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="payment_terms" class="form-label">Payment Terms</label>
+                                <input type="payment_terms" class="form-control" id="payment_terms" name="payment_terms" placeholder="Enter your Payment Terms">
+                                @if ($errors->has("payment_terms"))
+                                    <p class="text-danger">{{ $errors->first("payment_terms") }}</p>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="account_balance" class="form-label">Account Balance</label>
+                                <input type="number" class="form-control" id="account_balance" name="account_balance" placeholder="Enter your Loyalty Points">
+                                @if ($errors->has("account_balance"))
+                                    <p class="text-danger">{{ $errors->first("account_balance") }}</p>
                                 @endif
                             </div>
                         </div>

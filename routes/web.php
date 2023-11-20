@@ -5,18 +5,8 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 
 //admin panel route
@@ -45,6 +35,16 @@ Route::get('/customer_details_view/{id}', [CustomerController::class, 'view'])->
 Route::get('/customer_details_edit/{id}', [CustomerController::class, 'edit'])->name('customer_details_edit');
 Route::post('/customer_details_update/{id}', [CustomerController::class, 'update'])->name('customer_details_update');
 Route::get('/customer_details_delete/{id}', [CustomerController::class, 'delete'])->name('customer_details_delete');
+//customer_details start
+
+//customer_details start
+Route::get('/supplier_details_index', [SupplierController::class, 'index'])->name('supplier_details_index');
+Route::get('/supplier_details_create', [SupplierController::class, 'create'])->name('supplier_details_create');
+Route::post('/supplier_details_store', [SupplierController::class, 'store'])->name('supplier_details_store');
+Route::get('/supplier_details_view/{id}', [SupplierController::class, 'view'])->name('supplier_details_view');
+Route::get('/supplier_details_edit/{id}', [SupplierController::class, 'edit'])->name('supplier_details_edit');
+Route::post('/supplier_details_update/{id}', [SupplierController::class, 'update'])->name('supplier_details_update');
+Route::get('/supplier_details_delete/{id}', [SupplierController::class, 'delete'])->name('supplier_details_delete');
 //customer_details start
 
 //for pdf
