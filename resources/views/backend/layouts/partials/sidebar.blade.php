@@ -72,8 +72,11 @@
             </a>
             <ul id="components-nav_salary" class="nav-content collapse " data-bs-parent="#sidebar-nav_salary">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                    <a href="{{route('salary_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Salary</span>
+                    </a>
+                    <a href="{{route('salary_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Salary</span>
                     </a>
                 </li>
 
@@ -101,8 +104,11 @@
             </a>
             <ul id="components-nav_products" class="nav-content collapse " data-bs-parent="#sidebar-nav_products">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                    <a href="{{route('product_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Product</span>
+                    </a>
+                    <a href="{{route('product_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Product</span>
                     </a>
                 </li>
 
@@ -130,11 +136,13 @@
             </a>
             <ul id="components-nav_orders" class="nav-content collapse " data-bs-parent="#sidebar-nav_orders">
                 <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                    <a href="{{route('order_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Order</span>
+                    </a>
+                    <a href="{{route('order_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Order</span>
                     </a>
                 </li>
-
             </ul>
         </li><!-- End Components Nav -->
         <li class="nav-item">
@@ -142,11 +150,14 @@
                 <i class="bi bi-chat-left-text"></i><span>Sales Report</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-nav_salesReport" class="nav-content collapse " data-bs-parent="#sidebar-nav_salesReport">
-                <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                {{-- <li>
+                    <a href="{{route('sales_report_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Sales Report</span>
                     </a>
-                </li>
+                    <a href="{{route('sales_report_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Sales Report</span>
+                    </a>
+                </li> --}}
 
             </ul>
         </li><!-- End Components Nav -->
@@ -155,11 +166,14 @@
                 <i class="bi bi-check-circle"></i><span>Attendence</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-nav_attendence" class="nav-content collapse " data-bs-parent="#sidebar-nav_attendence">
-                <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                {{-- <li>
+                    <a href="{{route('attendence_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Attendence</span>
                     </a>
-                </li>
+                    <a href="{{route('attendence_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Attendence</span>
+                    </a>
+                </li> --}}
 
             </ul>
         </li><!-- End Components Nav -->
@@ -168,11 +182,14 @@
                 <i class="bi bi-gear"></i><span>Settings</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-nav_setting" class="nav-content collapse " data-bs-parent="#sidebar-nav_setting">
-                <li>
-                    <a href="">
-                        <i class="bi bi-circle"></i><span>Alerts</span>
+                {{-- <li>
+                    <a href="{{route('setting_details_create')}}">
+                        <i class="bi bi-circle"></i><span>Add Settings</span>
                     </a>
-                </li>
+                    <a href="{{route('setting_details_index')}}">
+                        <i class="bi bi-circle"></i><span>All Settings</span>
+                    </a>
+                </li> --}}
 
             </ul>
         </li><!-- End Components Nav -->

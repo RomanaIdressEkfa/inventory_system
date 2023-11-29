@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Upload;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\Category;
+use Exception;
 use Illuminate\Http\Request;
+
 
 class CategoryController extends Controller
 {
@@ -10,39 +16,47 @@ class CategoryController extends Controller
     {
 
         $sl = !is_null(\request()->page) ? (\request()->page -1 )* 8 : 0;
-        $employees = Employee::latest()->paginate(8);
-        return view('backend.layouts.Employees.index', compact('employees','sl'));
+        $categories = Category::latest()->paginate(8);
+        return view('backend.layouts.Category.index', compact('categories','sl'));
     }
 
 
     public function create()
     {
-        return view('backend.layouts.Employees.create');
+        return view('backend.layouts.Category.create');
     }
 
 
     public function view($id)
     {
-        $employee = Employee::find($id);
-        return view('backend.layouts.Employees.view', compact('employee'));
+        $category = Category::find($id);
+        return view('backend.layouts.Category.view', compact('category'));
     }
 
 
-    public function store(StoreEmployeeRequest $request)
+    public function store(StoreCategoryRequest $request)
     {
 
-        try {
-            $data= $request->all();
-            if($request->image){
-                $imageName = '';
-                // upload image
-                $imageName = Upload::uploadImage($request->image, 'images/employees');
-                $data["image"]=$imageName;
-            }
-            Employee::create($data);
-            toastr()->success('Employee has been created successfully!', 'Congrats');
-            return redirect()->route('employee_details_index');
-        } catch (Exception $e) {
+        // try {
+        //     $data= $request->all();
+        //     if($request->image){
+        //         $imageName = '';
+        //         // upload image
+        //         $imageName = Upload::uploadImage($request->image, 'images/categories');
+        //         $data["image"]=$imageName;
+        //     }
+        //     Category::create($data);
+        //     toastr()->success('Category has been created successfully!', 'Congrats');
+        //     return redirect()->route('category_details_index');
+        // } catch (Exception $e) {
+        //     toastr()->error('Something went wrong!', 'Alert');
+        // }
+        try{
+            $data = $request->all();
+            Category::create($data);
+            toastr()->success('Category has been created successfully!', 'Congrats');
+             return redirect()->route('category_details_index');
+        }catch(Exception $e){
             toastr()->error('Something went wrong!', 'Alert');
         }
     }
@@ -50,44 +64,48 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        $employee = Employee::find($id);
-        return view('backend.layouts.Employees.edit', compact('employee'));
+        $category = Category::find($id);
+        return view('backend.layouts.Category.edit', compact('category'));
     }
 
 
-    public function update(UpdateEmployeeRequest $request, $id)
+    public function update(UpdateCategoryRequest $request, $id)
     {
-        try {
-            $employee = Employee::findOrFail($id);
-            $imageName = '';
-            $deleteOldImage = 'images/employees/' . $employee->image;
+        // try {
+        //     $category = Category::findOrFail($id);
+        //     $imageName = '';
+        //     $deleteOldImage = 'images/categories/' . $category->image;
 
-            if ($image = $request->file('image')) {
-                if (file_exists($deleteOldImage)) {
-                    File::delete($deleteOldImage);
-                } else {
-                    $imageName = $employee->image;
-                }
-                //update image
-                $imageName = Upload::uploadImage($request->image, 'images/employees');
-            }
+        //     if ($image = $request->file('image')) {
+        //         if (file_exists($deleteOldImage)) {
+        //             File::delete($deleteOldImage);
+        //         } else {
+        //             $imageName = $category->image;
+        //         }
+        //         //update image
+        //         $imageName = Upload::uploadImage($request->image, 'images/categories');
+        //     }
 
-            $employee->update([
-                'name' => $request->name,
-                'email' => $request->email,
-                'phone_number' => $request->phone_number,
-                'address' => $request->address,
-                'image' => $imageName,
-                'position' => $request->position,
-                'department' => $request->department,
-                'date_of_birth' => $request->date_of_birth,
-                'hire_date' => $request->hire_date,
-                'nid_no' => $request->nid_no,
-                'salary' => $request->salary,
-            ]);
-            toastr()->success('Employee has been updated successfully!', 'Congrats');
-            return redirect()->route('employee_details_index');
-        } catch (Exception $e) {
+        //     $category->update([
+        //         'name' => $request->name,
+        //         'description' => $request->description,
+        //         'image' => $imageName,
+
+
+        //     ]);
+        //     toastr()->success('Category has been updated successfully!', 'Congrats');
+        //     return redirect()->route('category_details_index');
+        // } catch (Exception $e) {
+        //     toastr()->error('Something went wrong!', 'Alert');
+        // }
+        try{
+
+            $data = $request->except('_token');
+            Category::where('id', $id)->update($data);
+            toastr()->success('Category has been updated successfully!', 'Congrats');
+            return redirect()->route('category_details_index');
+
+        }catch(Exception $e){
             toastr()->error('Something went wrong!', 'Alert');
         }
     }
@@ -95,10 +113,8 @@ class CategoryController extends Controller
 
     public function delete($id)
     {
-        $employee = Employee::find($id);
-        $deleteOldImage = 'images/employees/' . $employee->image;
-        File::delete($deleteOldImage);
-        $employee->delete();
+        $category =Category::find($id);
+        $category->delete();
         return redirect()->back();
     }
 }
