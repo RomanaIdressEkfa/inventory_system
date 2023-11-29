@@ -5,8 +5,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PdfController;
+use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +22,7 @@ Route::get('/', [BackendController::class, 'admin'])->name('admin');
 // });
 
 
-//expense_details start
+//category_details start
 Route::get('/category_details_index', [CategoryController::class, 'index'])->name('category_details_index');
 Route::get('/category_details_create', [CategoryController::class, 'create'])->name('category_details_create');
 Route::post('/category_details_store', [CategoryController::class, 'store'])->name('category_details_store');
@@ -27,7 +30,7 @@ Route::get('/category_details_view/{id}', [CategoryController::class, 'view'])->
 Route::get('/category_details_edit/{id}', [CategoryController::class, 'edit'])->name('category_details_edit');
 Route::post('/category_details_update/{id}', [CategoryController::class, 'update'])->name('category_details_update');
 Route::get('/category_details_delete/{id}', [CategoryController::class, 'delete'])->name('category_details_delete');
-//expense_details start
+//category_details start
 
 //customer_details start
 Route::get('/customer_details_index', [CustomerController::class, 'index'])->name('customer_details_index');
@@ -48,6 +51,36 @@ Route::get('/employee_details_edit/{id}', [EmployeeController::class, 'edit'])->
 Route::post('/employee_details_update/{id}', [EmployeeController::class, 'update'])->name('employee_details_update');
 Route::get('/employee_details_delete/{id}', [EmployeeController::class, 'delete'])->name('employee_details_delete');
 //employee_details end
+
+//order_details start
+Route::get('/order_details_index', [OrderController::class, 'index'])->name('order_details_index');
+Route::get('/order_details_create', [OrderController::class, 'create'])->name('order_details_create');
+Route::post('/order_details_store', [OrderController::class, 'store'])->name('order_details_store');
+Route::get('/order_details_view/{id}', [OrderController::class, 'view'])->name('order_details_view');
+Route::get('/order_details_edit/{id}', [OrderController::class, 'edit'])->name('order_details_edit');
+Route::post('/order_details_update/{id}', [OrderController::class, 'update'])->name('order_details_update');
+Route::get('/order_details_delete/{id}', [OrderController::class, 'delete'])->name('order_details_delete');
+//order_details end
+
+//product_details start
+Route::get('/product_details_index', [ProductsController::class, 'index'])->name('product_details_index');
+Route::get('/product_details_create', [ProductsController::class, 'create'])->name('product_details_create');
+Route::post('/product_details_store', [ProductsController::class, 'store'])->name('product_details_store');
+Route::get('/product_details_view/{id}', [ProductsController::class, 'view'])->name('product_details_view');
+Route::get('/product_details_edit/{id}', [ProductsController::class, 'edit'])->name('product_details_edit');
+Route::post('/product_details_update/{id}', [ProductsController::class, 'update'])->name('product_details_update');
+Route::get('/product_details_delete/{id}', [ProductsController::class, 'delete'])->name('product_details_delete');
+//product_details end
+
+//salary_details start
+Route::get('/salary_details_index', [SalaryController::class, 'index'])->name('salary_details_index');
+Route::get('/salary_details_create', [SalaryController::class, 'create'])->name('salary_details_create');
+Route::post('/salary_details_store', [SalaryController::class, 'store'])->name('salary_details_store');
+Route::get('/salary_details_view/{id}', [SalaryController::class, 'view'])->name('salary_details_view');
+Route::get('/salary_details_edit/{id}', [SalaryController::class, 'edit'])->name('salary_details_edit');
+Route::post('/salary_details_update/{id}', [SalaryController::class, 'update'])->name('salary_details_update');
+Route::get('/salary_details_delete/{id}', [SalaryController::class, 'delete'])->name('salary_details_delete');
+//salary_details end
 
 //supplier_details start
 Route::get('/supplier_details_index', [SupplierController::class, 'index'])->name('supplier_details_index');
