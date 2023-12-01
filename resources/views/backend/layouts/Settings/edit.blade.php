@@ -8,13 +8,13 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rGObF6jz9ATKxIep9tiCxS/Z9fNfexbBH8qO2ms2hJSg9uBoFv06C6uKfr5ccFQ8"
                 crossorigin="anonymous">
-            <title>Edit Order</title>
+            <title>Edit Settings</title>
         </head>
 
         <body>
 
             <div class="container border border-light shadow mt-2 rounded p-4">
-                <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>EDIT ORDER</h3>
+                <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>EDIT SETTINGS</h3>
 {{--
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -29,61 +29,53 @@
                 @if (Session::has("msg"))
                     <p class="alert alert-success">{{ Session::get("msg") }}</p>
                 @endif --}}
-                <form action="{{ route("order_details_update", $order->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route("settings_details_update", $setting->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
+
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="order_date" class="form-label">Order_date</label>
-                                <input type="date" class="form-control" value="{{$order->order_date}}" id="order_date" name="order_date" placeholder="Enter your order_date">
-                                @if ($errors->has("order_date"))
-                                    <p class="text-danger">{{ $errors->first("order_date") }}</p>
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" value="{{$setting->name}}"  id="name" name="name" placeholder="Enter your name">
+                                @if ($errors->has("name"))
+                                    <p class="text-danger">{{ $errors->first("name") }}</p>
                                 @endif
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="total_amount" class="form-label">Total_amount</label>
-                                <input type="number" class="form-control" value="{{$order->total_amount}}" id="total_amount" name="total_amount" placeholder="Enter your total_amount">
-                                @if ($errors->has("total_amount"))
-                                    <p class="text-danger">{{ $errors->first("total_amount") }}</p>
+                                <label for="value" class="form-label">value</label>
+                                <input type="text" class="form-control" value="{{$setting->value}}" id="value" name="value" placeholder="Enter your value">
+                                @if ($errors->has("value"))
+                                    <p class="text-danger">{{ $errors->first("value") }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="status" class="form-label">Status </label>
-                                <input type="text" class="form-control" value="{{$order->status}}" id="status " name="status " placeholder="Enter your status ">
-                                @if ($errors->has("status "))
-                                    <p class="text-danger">{{ $errors->first("status ") }}</p>
+                                <label for="description" class="form-label">Description</label>
+                                <input type="text" class="form-control" value="{{$setting->description}}" id="description" name="description" placeholder="Enter your description">
+                                @if ($errors->has("description"))
+                                    <p class="text-danger">{{ $errors->first("description") }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="payment_method" class="form-label">payment_method</label>
-                                <input type="text" class="form-control" value="{{$order->payment_method}}" id="payment_method" name="payment_method" placeholder="Enter your payment_method">
-                                @if ($errors->has("payment_method"))
-                                    <p class="text-danger">{{ $errors->first("payment_method") }}</p>
+                                <label for="data_type" class="form-label">data_type</label>
+                                <input type="text" class="form-control" value="{{$setting->data_type}}" id="data_type" name="data_type" placeholder="Enter your data_type">
+                                @if ($errors->has("data_type"))
+                                    <p class="text-danger">{{ $errors->first("data_type") }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="shipping_address" class="form-label">Shipping_address</label>
-                                <input type="text" class="form-control" value="{{$order->shipping_address}}" id="shipping_address" name="shipping_address" placeholder="Enter your shipping_address">
-                                @if ($errors->has("shipping_address"))
-                                    <p class="text-danger">{{ $errors->first("shipping_address") }}</p>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="delivery_date" class="form-label">Delivery_date</label>
-                                <input type="date" class="form-control" value="{{$order->delivery_date}}" id="delivery_date" name="delivery_date" placeholder="Enter your delivery_date">
-                                @if ($errors->has("delivery_date"))
-                                    <p class="text-danger">{{ $errors->first("delivery_date") }}</p>
+                                <label for="default_value" class="form-label">default_value</label>
+                                <input type="text" class="form-control" value="{{$setting->default_value}}" id="default_value" name="default_value" placeholder="Enter your default_value">
+                                @if ($errors->has("default_value"))
+                                    <p class="text-danger">{{ $errors->first("default_value") }}</p>
                                 @endif
                             </div>
                         </div>

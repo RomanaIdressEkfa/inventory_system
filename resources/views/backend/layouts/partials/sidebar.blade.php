@@ -150,14 +150,14 @@
                 <i class="bi bi-chat-left-text"></i><span>Sales Report</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-nav_salesReport" class="nav-content collapse " data-bs-parent="#sidebar-nav_salesReport">
-                {{-- <li>
+                <li>
                     <a href="{{route('sales_report_details_create')}}">
                         <i class="bi bi-circle"></i><span>Add Sales Report</span>
                     </a>
                     <a href="{{route('sales_report_details_index')}}">
                         <i class="bi bi-circle"></i><span>All Sales Report</span>
                     </a>
-                </li> --}}
+                </li>
 
             </ul>
         </li><!-- End Components Nav -->
@@ -166,14 +166,14 @@
                 <i class="bi bi-check-circle"></i><span>Attendence</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-nav_attendence" class="nav-content collapse " data-bs-parent="#sidebar-nav_attendence">
-                {{-- <li>
+                <li>
                     <a href="{{route('attendence_details_create')}}">
                         <i class="bi bi-circle"></i><span>Add Attendence</span>
                     </a>
                     <a href="{{route('attendence_details_index')}}">
                         <i class="bi bi-circle"></i><span>All Attendence</span>
                     </a>
-                </li> --}}
+                </li>
 
             </ul>
         </li><!-- End Components Nav -->
@@ -182,14 +182,14 @@
                 <i class="bi bi-gear"></i><span>Settings</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
             <ul id="components-nav_setting" class="nav-content collapse " data-bs-parent="#sidebar-nav_setting">
-                {{-- <li>
-                    <a href="{{route('setting_details_create')}}">
+                <li>
+                    <a href="{{route('settings_details_create')}}">
                         <i class="bi bi-circle"></i><span>Add Settings</span>
                     </a>
-                    <a href="{{route('setting_details_index')}}">
+                    <a href="{{route('settings_details_index')}}">
                         <i class="bi bi-circle"></i><span>All Settings</span>
                     </a>
-                </li> --}}
+                </li>
 
             </ul>
         </li><!-- End Components Nav -->

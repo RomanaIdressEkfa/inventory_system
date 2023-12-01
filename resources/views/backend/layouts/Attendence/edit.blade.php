@@ -8,13 +8,13 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rGObF6jz9ATKxIep9tiCxS/Z9fNfexbBH8qO2ms2hJSg9uBoFv06C6uKfr5ccFQ8"
                 crossorigin="anonymous">
-            <title>Edit Order</title>
+            <title>Edit Attendence</title>
         </head>
 
         <body>
 
             <div class="container border border-light shadow mt-2 rounded p-4">
-                <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>EDIT ORDER</h3>
+                <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>EDIT ATTENDANCE</h3>
 {{--
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -29,67 +29,65 @@
                 @if (Session::has("msg"))
                     <p class="alert alert-success">{{ Session::get("msg") }}</p>
                 @endif --}}
-                <form action="{{ route("order_details_update", $order->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route("attendence_details_update", $attendence->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="order_date" class="form-label">Order_date</label>
-                                <input type="date" class="form-control" value="{{$order->order_date}}" id="order_date" name="order_date" placeholder="Enter your order_date">
-                                @if ($errors->has("order_date"))
-                                    <p class="text-danger">{{ $errors->first("order_date") }}</p>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                <label for="total_amount" class="form-label">Total_amount</label>
-                                <input type="number" class="form-control" value="{{$order->total_amount}}" id="total_amount" name="total_amount" placeholder="Enter your total_amount">
-                                @if ($errors->has("total_amount"))
-                                    <p class="text-danger">{{ $errors->first("total_amount") }}</p>
-                                @endif
+                                <select class="form-select" aria-label="Default select example" name="employee_id">
+                                    <option selected>IMPLOYEE ID:</option>
+                                   @foreach ($employees as $employee)
+                                        <option value="{{ $employee->id }}">{{ $employee->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="status" class="form-label">Status </label>
-                                <input type="text" class="form-control" value="{{$order->status}}" id="status " name="status " placeholder="Enter your status ">
-                                @if ($errors->has("status "))
-                                    <p class="text-danger">{{ $errors->first("status ") }}</p>
+                                <label for="attendance_date" class="form-label">Attendance Date</label>
+                                <input type="date" class="form-control" value="{{$attendence->attendance_date}}" id="attendance_date" name="attendance_date" placeholder="Enter your attendance_date">
+                                @if ($errors->has("attendance_date"))
+                                    <p class="text-danger">{{ $errors->first("attendance_date") }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="payment_method" class="form-label">payment_method</label>
-                                <input type="text" class="form-control" value="{{$order->payment_method}}" id="payment_method" name="payment_method" placeholder="Enter your payment_method">
-                                @if ($errors->has("payment_method"))
-                                    <p class="text-danger">{{ $errors->first("payment_method") }}</p>
+                                <label for="clock_in_time" class="form-label">clock_in_time</label>
+                                <input type="time" class="form-control" value="{{$attendence->clock_in_time}}" id="clock_in_time" name="clock_in_time" placeholder="Enter your clock_in_time">
+                                @if ($errors->has("clock_in_time"))
+                                    <p class="text-danger">{{ $errors->first("clock_in_time") }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="shipping_address" class="form-label">Shipping_address</label>
-                                <input type="text" class="form-control" value="{{$order->shipping_address}}" id="shipping_address" name="shipping_address" placeholder="Enter your shipping_address">
-                                @if ($errors->has("shipping_address"))
-                                    <p class="text-danger">{{ $errors->first("shipping_address") }}</p>
+                                <label for="clock_out_time" class="form-label">clock_out_time</label>
+                                <input type="time" class="form-control" value="{{$attendence->clock_out_time}}" id="clock_out_time" name="clock_out_time" placeholder="Enter your clock_out_time">
+                                @if ($errors->has("clock_out_time"))
+                                    <p class="text-danger">{{ $errors->first("clock_out_time") }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="delivery_date" class="form-label">Delivery_date</label>
-                                <input type="date" class="form-control" value="{{$order->delivery_date}}" id="delivery_date" name="delivery_date" placeholder="Enter your delivery_date">
-                                @if ($errors->has("delivery_date"))
-                                    <p class="text-danger">{{ $errors->first("delivery_date") }}</p>
+                                <label for="overtime_hours" class="form-label">overtime_hours</label>
+                                <input type="number" value="{{$attendence->overtime_hours}}" class="form-control" id="overtime_hours" name="overtime_hours" placeholder="Enter your overtime_hours">
+                                @if ($errors->has("overtime_hours"))
+                                    <p class="text-danger">{{ $errors->first("overtime_hours") }}</p>
                                 @endif
                             </div>
                         </div>
-
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="status" class="form-label">status </label>
+                                <input type="text" value="{{$attendence->status}}" class="form-control" id="status" name="status" placeholder="Enter your status">
+                                @if ($errors->has("status"))
+                                    <p class="text-danger">{{ $errors->first("status") }}</p>
+                                @endif
+                            </div>
+                        </div>
                     </div>
-
                     <button type="submit" class="btn btn-primary mb-3">Submit</button>
                 </form>
             </div>
