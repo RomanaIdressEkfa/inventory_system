@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendenceController;
 use App\Http\Controllers\BackendController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
@@ -10,6 +11,8 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SalaryController;
+use App\Http\Controllers\SalesReportController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +24,16 @@ Route::get('/', [BackendController::class, 'admin'])->name('admin');
 //     Route::get('/', [BackendController::class, 'admin'])->name('admin');
 // });
 
+
+//attendence_details start
+Route::get('/attendence_details_index', [AttendenceController::class, 'index'])->name('attendence_details_index');
+Route::get('/attendence_details_create', [AttendenceController::class, 'create'])->name('attendence_details_create');
+Route::post('/attendence_details_store', [AttendenceController::class, 'store'])->name('attendence_details_store');
+Route::get('/attendence_details_view/{id}', [AttendenceController::class, 'view'])->name('attendence_details_view');
+Route::get('/attendence_details_edit/{id}', [AttendenceController::class, 'edit'])->name('attendence_details_edit');
+Route::post('/attendence_details_update/{id}', [AttendenceController::class, 'update'])->name('attendence_details_update');
+Route::get('/attendence_details_delete/{id}', [AttendenceController::class, 'delete'])->name('attendence_details_delete');
+//attendence_details start
 
 //category_details start
 Route::get('/category_details_index', [CategoryController::class, 'index'])->name('category_details_index');
@@ -52,6 +65,16 @@ Route::post('/employee_details_update/{id}', [EmployeeController::class, 'update
 Route::get('/employee_details_delete/{id}', [EmployeeController::class, 'delete'])->name('employee_details_delete');
 //employee_details end
 
+//expense_details start
+Route::get('/expense_details_index', [ExpenseController::class, 'index'])->name('expense_details_index');
+Route::get('/expense_details_create', [ExpenseController::class, 'create'])->name('expense_details_create');
+Route::post('/expense_details_store', [ExpenseController::class, 'store'])->name('expense_details_store');
+Route::get('/expense_details_view/{id}', [ExpenseController::class, 'view'])->name('expense_details_view');
+Route::get('/expense_details_edit/{id}', [ExpenseController::class, 'edit'])->name('expense_details_edit');
+Route::post('/expense_details_update/{id}', [ExpenseController::class, 'update'])->name('expense_details_update');
+Route::get('/expense_details_delete/{id}', [ExpenseController::class, 'delete'])->name('expense_details_delete');
+//expense_details start
+
 //order_details start
 Route::get('/order_details_index', [OrderController::class, 'index'])->name('order_details_index');
 Route::get('/order_details_create', [OrderController::class, 'create'])->name('order_details_create');
@@ -82,6 +105,16 @@ Route::post('/salary_details_update/{id}', [SalaryController::class, 'update'])-
 Route::get('/salary_details_delete/{id}', [SalaryController::class, 'delete'])->name('salary_details_delete');
 //salary_details end
 
+//sales_report_details start
+Route::get('/sales_report_details_index', [SalesReportController::class, 'index'])->name('sales_report_details_index');
+Route::get('/sales_report_details_create', [SalesReportController::class, 'create'])->name('sales_report_details_create');
+Route::post('/sales_report_details_store', [SalesReportController::class, 'store'])->name('sales_report_details_store');
+Route::get('/sales_report_details_view/{id}', [SalesReportController::class, 'view'])->name('sales_report_details_view');
+Route::get('/sales_report_details_edit/{id}', [SalesReportController::class, 'edit'])->name('sales_report_details_edit');
+Route::post('/sales_report_details_update/{id}', [SalesReportController::class, 'update'])->name('sales_report_details_update');
+Route::get('/sales_report_details_delete/{id}', [SalesReportController::class, 'delete'])->name('sales_report_details_delete');
+//sales_report_details end
+
 //supplier_details start
 Route::get('/supplier_details_index', [SupplierController::class, 'index'])->name('supplier_details_index');
 Route::get('/supplier_details_create', [SupplierController::class, 'create'])->name('supplier_details_create');
@@ -92,15 +125,17 @@ Route::post('/supplier_details_update/{id}', [SupplierController::class, 'update
 Route::get('/supplier_details_delete/{id}', [SupplierController::class, 'delete'])->name('supplier_details_delete');
 //supplier_detailcategory
 
-//expense_details start
-Route::get('/expense_details_index', [ExpenseController::class, 'index'])->name('expense_details_index');
-Route::get('/expense_details_create', [ExpenseController::class, 'create'])->name('expense_details_create');
-Route::post('/expense_details_store', [ExpenseController::class, 'store'])->name('expense_details_store');
-Route::get('/expense_details_view/{id}', [ExpenseController::class, 'view'])->name('expense_details_view');
-Route::get('/expense_details_edit/{id}', [ExpenseController::class, 'edit'])->name('expense_details_edit');
-Route::post('/expense_details_update/{id}', [ExpenseController::class, 'update'])->name('expense_details_update');
-Route::get('/expense_details_delete/{id}', [ExpenseController::class, 'delete'])->name('expense_details_delete');
-//expense_details start
+//settings_details start
+Route::get('/settings_details_index', [SettingsController::class, 'index'])->name('settings_details_index');
+Route::get('/settings_details_create', [SettingsController::class, 'create'])->name('settings_details_create');
+Route::post('/settings_details_store', [SettingsController::class, 'store'])->name('settings_details_store');
+Route::get('/settings_details_view/{id}', [SettingsController::class, 'view'])->name('settings_details_view');
+Route::get('/settings_details_edit/{id}', [SettingsController::class, 'edit'])->name('settings_details_edit');
+Route::post('/settings_details_update/{id}', [SettingsController::class, 'update'])->name('settings_details_update');
+Route::get('/settings_details_delete/{id}', [SettingsController::class, 'delete'])->name('settings_details_delete');
+//settings_detailcategory
+
+
 
 //for pdf
 Route::get('/employees_details_pdf/{id}', [PdfController::class, 'employees_details_pdf'])->name('employees_details_pdf');

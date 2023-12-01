@@ -8,22 +8,32 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rGObF6jz9ATKxIep9tiCxS/Z9fNfexbBH8qO2ms2hJSg9uBoFv06C6uKfr5ccFQ8"
                 crossorigin="anonymous">
-            <title>Add Order</title>
+            <title>Add Sales Report</title>
         </head>
 
         <body>
 
             <div class="container border border-light shadow p-4 rounded">
-                <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>ADD ORDER</h3>
-                <form action="{{ route("order_details_store") }}" method="POST" enctype="multipart/form-data">
+                <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>ADD SALES REPORT</h3>
+                <form action="{{ route("sales_report_details_store") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <select class="form-select" aria-label="Default select example" name="customer_id">
-                                    <option selected>CUSTOMER ID:</option>
-                            4        @foreach ($customers as $customer)
-                                        <option value="{{ $customer->id }}">{{ $customer->id }}</option>
+                                <select class="form-select" aria-label="Default select example" name="product_id">
+                                    <option selected>PRODUCT ID:</option>
+                                   @foreach ($products as $product)
+                                        <option value="{{ $product->id }}">{{ $product->id }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <select class="form-select" aria-label="Default select example" name="order_id">
+                                    <option selected>ORDER ID:</option>
+                                    @foreach ($orders as $order)
+                                        <option value="{{ $order->id }}">{{ $order->id }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -32,56 +42,57 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="order_date" class="form-label">Order_date</label>
-                                <input type="date" class="form-control" id="order_date" name="order_date" placeholder="Enter your order_date">
-                                @if ($errors->has("order_date"))
-                                    <p class="text-danger">{{ $errors->first("order_date") }}</p>
+                                <label for="quantity_sold" class="form-label">quantity_sold</label>
+                                <input type="number" class="form-control" id="quantity_sold" name="quantity_sold" placeholder="Enter your quantity_sold">
+                                @if ($errors->has("quantity_sold"))
+                                    <p class="text-danger">{{ $errors->first("quantity_sold") }}</p>
                                 @endif
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="total_amount" class="form-label">Total_amount</label>
+                                <label for="total_amount" class="form-label">total_amount</label>
                                 <input type="number" class="form-control" id="total_amount" name="total_amount" placeholder="Enter your total_amount">
                                 @if ($errors->has("total_amount"))
                                     <p class="text-danger">{{ $errors->first("total_amount") }}</p>
                                 @endif
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="status" class="form-label">Status</label>
-                                <input type="text" class="form-control" id="status" name="status" placeholder="Enter your status ">
-                                @if ($errors->has("status"))
-                                    <p class="text-danger">{{ $errors->first("status") }}</p>
+                                <label for="profit_margin" class="form-label">profit_margin</label>
+                                <input type="number" class="form-control" id="profit_margin" name="profit_margin" placeholder="Enter your profit_margin">
+                                @if ($errors->has("profit_margin"))
+                                    <p class="text-danger">{{ $errors->first("profit_margin") }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="payment_method" class="form-label">payment_method</label>
-                                <input type="text" class="form-control" id="payment_method" name="payment_method" placeholder="Enter your payment_method">
-                                @if ($errors->has("payment_method"))
-                                    <p class="text-danger">{{ $errors->first("payment_method") }}</p>
+                                <label for="discount_amount" class="form-label">discount_amount</label>
+                                <input type="number" class="form-control" id="discount_amount" name="discount_amount" placeholder="Enter your discount_amount">
+                                @if ($errors->has("discount_amount"))
+                                    <p class="text-danger">{{ $errors->first("discount_amount") }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="shipping_address" class="form-label">Shipping_address</label>
-                                <input type="text" class="form-control" id="shipping_address" name="shipping_address" placeholder="Enter your shipping_address">
-                                @if ($errors->has("shipping_address"))
-                                    <p class="text-danger">{{ $errors->first("shipping_address") }}</p>
+                                <label for="sale_date" class="form-label">sale_date</label>
+                                <input type="date" class="form-control" id="sale_date" name="sale_date" placeholder="Enter your sale_date">
+                                @if ($errors->has("sale_date"))
+                                    <p class="text-danger">{{ $errors->first("sale_date") }}</p>
                                 @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="delivery_date" class="form-label">Delivery_date</label>
-                                <input type="date" class="form-control" id="delivery_date" name="delivery_date" placeholder="Enter your delivery_date">
-                                @if ($errors->has("delivery_date"))
-                                    <p class="text-danger">{{ $errors->first("delivery_date") }}</p>
+                                <label for="taxes" class="form-label">taxes</label>
+                                <input type="number" class="form-control" id="taxes" name="taxes" placeholder="Enter your taxes">
+                                @if ($errors->has("taxes"))
+                                    <p class="text-danger">{{ $errors->first("taxes") }}</p>
                                 @endif
                             </div>
                         </div>

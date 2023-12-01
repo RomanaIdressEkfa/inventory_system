@@ -9,8 +9,12 @@ class Employee extends Model
 {
     use HasFactory;
     protected $guarded =[];
-    
+
     public function salaries() {
         return $this->hasMany(Salary::class);
+    }
+
+    public function attendences() {
+        return $this->hasMany(Attendence::class);
     }
 }
