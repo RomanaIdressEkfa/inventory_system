@@ -12,6 +12,11 @@
 :root {
     scroll-behavior: smooth;
 }
+
+.logo img {
+    max-height: 45px!important;
+    margin-right: 4px;
+}
 button,
 a {
     border-radius: 2px !important;
@@ -42,7 +47,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: "Nunito", sans-serif;
+    /* font-family: "Nunito", sans-serif; */
+    font-family:  "Roboto", sans-serif;
 }
 
 /*--------------------------------------------------------------

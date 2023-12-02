@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('employee_id');
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
-            $table->date('attendance_date');
-            $table->string('status'); // Assuming 'status' is a string field for present, absent, late, etc.
-            $table->time('clock_in_time')->nullable(); // Assuming 'clock_in_time' and 'clock_out_time' are time fields and can be nullable
-            $table->time('clock_out_time')->nullable();
+            $table->date('attendance_date')->default(date("Y-m-d"));;
+            $table->boolean('status')->default(1);// Assuming 'status' is a string field for present, absent, late, etc.
+            $table->time('clock_in_time')->default(date("H:i:s")); // Assuming 'clock_in_time' and 'clock_out_time' are time fields and can be nullable
+            $table->time('clock_out_time')->default(date("H:i:s"));
             $table->decimal('overtime_hours', 5, 2)->nullable();
             $table->timestamps();
         });
