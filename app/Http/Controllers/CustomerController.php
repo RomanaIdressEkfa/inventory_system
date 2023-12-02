@@ -14,7 +14,7 @@ class CustomerController extends Controller
 
     public function index(){
         $sl = !is_null(\request()->page) ? (\request()->page -1 )* 8 : 0;
-        $customers=Customer::latest()->paginate(8);
+        $customers=Customer::latest()->paginate(5);
         return view('backend.layouts.Customers.index',compact('customers','sl'));
     }
 

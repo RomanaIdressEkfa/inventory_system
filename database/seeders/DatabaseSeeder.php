@@ -22,6 +22,13 @@ class DatabaseSeeder extends Seeder
             EmployeeSeeder::class,
             CustomerSeeder::class,
             SupplierSeeder::class,
+            AttendenceSeeder::class,
+            CategorySeeder::class,
+            ExpenseSeeder::class,
+            // OrderSeeder::class,
+            // // ProductsSeeder::class,
+            // // SalarySeeder::class,
+            // Sales_ReportSeeder::class,
         ]);
     }
 

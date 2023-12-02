@@ -41,10 +41,10 @@
         <th class="bg-dark bg-gradient text-white">ID</th>
         <th class="bg-dark bg-gradient text-white">Name</th>
         <th class="bg-dark bg-gradient text-white">Quantity</th>
+        <th class="bg-dark bg-gradient text-white">Category Description</th>
         <th class="bg-dark bg-gradient text-white">Image_url</th>
         {{-- <th class="bg-dark bg-gradient text-white">Tax Deductions</th>
         <th class="bg-dark bg-gradient text-white">Bonus</th> --}}
-        <th class="bg-dark bg-gradient text-white">Category Description</th>
         <th class="bg-dark bg-gradient text-white">Action</th>
     </tr>
     </thead>
@@ -57,11 +57,9 @@
             <td>{{++$sl}}</td>
             {{-- <td>{{$employee->id}}</td> --}}
             <td>{{$product->name}}</td>
-            <td>{{$product->quantity}}</td>
-            <td>{{$product->image_url}}</td>
-            <td>{{ $product->category->description }}</td>
-
-
+            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{$product->quantity}}</td>
+            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{ $product->category->description }}</td>
+            <td> <a href=" {{$product->image_url}}">{{$product->name}}</a>
             {{-- @foreach ($employees as $employee)
             <td>{{$employee->email}}</td>
             @endforeach --}}

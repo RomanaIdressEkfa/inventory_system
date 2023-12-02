@@ -15,7 +15,7 @@
 
             <div class="container border border-light shadow p-4 rounded">
                 <h3 class=" text-primary mb-4 text-center" style='font-weight:bold'>ADD CATEGORY</h3>
-                <form action="{{ route("employee_details_store") }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route("category_details_store") }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">

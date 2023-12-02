@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('sales__reports', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->unsignedBigInteger('order_id');
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
+            // $table->unsignedBigInteger('product_id');
+            $table->foreignId('product_id')->constrained('products')->cascadeOnDelete();
+            // $table->unsignedBigInteger('order_id');
+            $table->foreignId('order_id')->constrained('orders')->cascadeOnDelete();
             $table->integer('quantity_sold');
             $table->decimal('total_amount', 10, 2); // Assuming total amount is a decimal with 10 digits and 2 decimals
             $table->date('sale_date');

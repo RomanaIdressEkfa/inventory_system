@@ -16,7 +16,7 @@ class CategoryController extends Controller
     {
 
         $sl = !is_null(\request()->page) ? (\request()->page -1 )* 8 : 0;
-        $categories = Category::latest()->paginate(8);
+        $categories = Category::latest()->paginate(5);
         return view('backend.layouts.Category.index', compact('categories','sl'));
     }
 

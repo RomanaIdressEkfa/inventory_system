@@ -41,8 +41,8 @@
     <thead >
 
       <tr>
-        {{-- <th class="bg-dark bg-gradient text-white">ID</th> --}}
-        <th class="bg-dark bg-gradient text-white">Employee ID</th>
+        <th class="bg-dark bg-gradient text-white">ID</th>
+        {{-- <th class="bg-dark bg-gradient text-white">Employee ID</th> --}}
         <th class="bg-dark bg-gradient text-white">Employee Name</th>
         <th class="bg-dark bg-gradient text-white">Attendance_date</th>
         <th class="bg-dark bg-gradient text-white">Overtime_hours</th>
@@ -57,7 +57,7 @@
         @foreach ($attendences as $attendence)
         <tr>
             {{-- <td>{{++$sl}}</td> --}}
-            <td>{{$attendence->employee->id }}</td>
+            <td>{{$attendence->id }}</td>
             <td>{{$attendence->employee->name }}</td>
             <td>{{$attendence->attendance_date}}</td>
             <td>{{$attendence->overtime_hours}}</td>
