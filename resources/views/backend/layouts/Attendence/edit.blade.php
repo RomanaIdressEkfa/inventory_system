@@ -81,7 +81,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="status" class="form-label">status </label>
-                                <input type="text" value="{{$attendence->status}}" class="form-control" id="status" name="status" placeholder="Enter your status">
+                                <input type="number" value="{{$attendence->status}}" class="form-control" id="status" name="status" placeholder="Enter your status">
                                 @if ($errors->has("status"))
                                     <p class="text-danger">{{ $errors->first("status") }}</p>
                                 @endif

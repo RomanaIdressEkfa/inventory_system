@@ -33,6 +33,9 @@ Route::get('/attendence_details_view/{id}', [AttendenceController::class, 'view'
 Route::get('/attendence_details_edit/{id}', [AttendenceController::class, 'edit'])->name('attendence_details_edit');
 Route::post('/attendence_details_update/{id}', [AttendenceController::class, 'update'])->name('attendence_details_update');
 Route::get('/attendence_details_delete/{id}', [AttendenceController::class, 'delete'])->name('attendence_details_delete');
+Route::get('/active/{id}', [AttendenceController::class, 'active'])->name('active');
+Route::get('/inactive/{id}', [AttendenceController::class, 'inactive'])->name('inactive');
+
 //attendence_details start
 
 //category_details start
