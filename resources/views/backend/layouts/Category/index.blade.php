@@ -53,10 +53,13 @@
             <td>{{++$sl}}</td>
             {{-- <td>{{$employee->id}}</td> --}}
             <td>{{$category->name}}</td>
-            <td>{{$category->description}}</td>
-            <td>
-                <img style="width:120px;" src="{{asset('images/categories/'.$category->image)}}" alt="">
+            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{{$category->description}}</td>
+            <td> <a href=" {{$category->image_url}}"> {{$category->name}}</a>
+
             </td>
+            {{-- <td>
+                <img style="width:120px;" src="{{asset('images/categories/'.$category->image)}}" alt="">
+            </td> --}}
             <td>
                 <a href="{{route('category_details_view',$category->id)}}" class="btn btn-info btn-sm text-white">View</a>
                 <a href="{{route('category_details_edit',$category->id)}}" class="btn btn-primary btn-sm text-white">Edit</a>

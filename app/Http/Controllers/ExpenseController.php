@@ -10,7 +10,7 @@ class ExpenseController extends Controller
 {
     public function index(){
         $sl = !is_null(\request()->page) ? (\request()->page -1 )* 8 : 0;
-        $expenses=Expense::latest()->paginate(8);
+        $expenses=Expense::latest()->paginate(5);
         return view('backend.layouts.Expense.index',compact('expenses','sl'));
     }
 

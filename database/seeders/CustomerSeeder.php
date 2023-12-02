@@ -13,6 +13,6 @@ class CustomerSeeder extends Seeder
      */
     public function run(): void
     {
-        Customer::factory(15)->create();
+        Customer::factory(8)->create();
     }
 }

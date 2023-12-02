@@ -15,7 +15,7 @@ class EmployeeController extends Controller
     {
 
         $sl = !is_null(\request()->page) ? (\request()->page -1 )* 8 : 0;
-        $employees = Employee::latest()->paginate(8);
+        $employees = Employee::latest()->paginate(5);
         return view('backend.layouts.Employees.index', compact('employees','sl'));
     }
 

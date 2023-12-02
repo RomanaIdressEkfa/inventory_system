@@ -24,7 +24,7 @@ class StoreCategoryRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image_url' => 'nullable|url', // Example: Check if it's a valid URL
+            'image_url' => 'nullable', // Example: Check if it's a valid URL
         ];
     }
     public function messages()
@@ -33,7 +33,7 @@ class StoreCategoryRequest extends FormRequest
         'name.required' => 'The name field is required.',
         'name.max' => 'The name may not be greater than 255 characters.',
         'description.string' => 'The description must be a string.',
-        'image_url.url' => 'The image URL must be a valid URL.',
+        // 'image_url.url' => 'The image URL must be a valid URL.',
     ];
 }
 }
