@@ -18,7 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 
 //admin panel route
-Route::get('/', [BackendController::class, 'admin'])->name('admin');
+Route::get('/', function () {
+    return view('auth.register');
+});
+Route::get('/admin', [BackendController::class, 'admin'])->name('admin');
 
 // Route::prefix('admin')->group(function () {
 //     Route::get('/', [BackendController::class, 'admin'])->name('admin');

@@ -21,9 +21,9 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <select class="form-select" aria-label="Default select example" name="employee_id">
-                                    <option selected>EMPLOYEE ID:</option>
+                                    <option selected>EMPLOYEE NAME:</option>
                             4        @foreach ($employees as $employee)
-                                        <option value="{{ $employee->id }}">{{ $employee->id }}</option>
+                                        <option value="{{ $employee->id }}">{{ $employee->name }}</option>
                                     @endforeach
                                 </select>
                             </div>

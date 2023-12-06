@@ -56,10 +56,11 @@
         <tr>
             <td>{{++$sl}}</td>
             {{-- <td>{{$employee->id}}</td> --}}
+            <td>{{ $order->customer->name }}</td>
             <td>{{$order->order_date}}</td>
             <td>{{$order->total_amount}}</td>
             <td>{{$order->payment_method}}</td>
-            <td>{{ $order->customer->name }}</td>
+
 
 
             {{-- @foreach ($employees as $employee)

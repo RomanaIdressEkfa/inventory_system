@@ -169,7 +169,12 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="{{asset('ui/backend')}}/#" data-bs-toggle="dropdown">
             <img src="{{asset('ui/backend')}}/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
+            {{-- <span class="d-none d-md-block dropdown-toggle ps-2">
+            @auth
+                {{ Auth::user()->name }} {{ Auth::user()->email }}
+            @endauth
+            </span> --}}
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -212,10 +217,13 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="{{asset('ui/backend')}}/#">
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+              <button type="submit" class="dropdown-item d-flex align-items-center" href="">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
-              </a>
+              </button>
+              </form>
             </li>
 
           </ul><!-- End Profile Dropdown Items -->
